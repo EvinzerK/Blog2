@@ -89,7 +89,89 @@
       </div>
     </div>
   </div>
-  
+  <!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsiv meny</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .meny {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .meny a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .meny a:hover {
+            background-color: #575757;
+        }
+
+        .meny .ikon {
+            display: none;
+            float: right;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+            .meny a {display: none;}
+            .meny a.aktiv {display: block;}
+            .meny .ikon {
+                display: block;
+            }
+        }
+
+        .innhold {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="meny" id="minMeny">
+    <a href="#hjem" class="aktiv">Hjem</a>
+    <a href="#om">Om oss</a>
+    <a href="#tjenester">Tjenester</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="javascript:void(0);" class="ikon" onclick="toggleMeny()">☰</a>
+</div>
+
+<div class="innhold">
+    <h1>Velkommen!</h1>
+    <p>Dette er en responsiv nettside med mobilvennlig meny.</p>
+</div>
+
+<script>
+    function toggleMeny() {
+        const meny = document.getElementById("minMeny");
+        const lenker = meny.getElementsByTagName("a");
+        for (let i = 0; i < lenker.length; i++) {
+            if (lenker[i].className !== "ikon") {
+                if (lenker[i].style.display === "block") {
+                    lenker[i].style.display = "none";
+                } else {
+                    lenker[i].style.display = "block";
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
 
   <footer>
     &copy; 2025 Min Blogg
